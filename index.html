@@ -13,19 +13,36 @@
 	</head>
 	<body>
 
-		<h1>Which Pokemon?</h1>
-		<input type="text" name="" value="">
-		<button type="button" name="button">Get Pokemon</button>
+		<main class="card">
+			<!-- Accessibility h1 -->
+			<h1 class="a11y">BookTracker powered by OpenLibrary API</h1>
+			<!-- Section for logo -->
+				<section class="searchBox">
+					<h2 class="a11y">Search bar entry</h2>
+					<div class="logo" aria-hidden="true">
+						LOGO
+					</div>
+				
+			<!-- Form for search -->
+					<form id="searchInput" class="searchInput">
 
-		<section id="search">
-			<ul class="findbooks">
+						<label for="search" class="a11y">Enter a search term for a book
+						</label>
 
-			</ul>
-		</section>
-		<h2>Name?</h2>
+						<input id="search" type="text" autocomplete="off" />
 
-		<!-- <img src="img/pokemon.jpeg" alt=""> -->
-		
+						<button id="searchButton" class="button searchButton" type="button" aria-label="Submit button">Get Pokemon
+						</button>
+						
+					</form>
+				</section>
+				
+			<section id="search">
+				<ul class="findbooks">
+
+				</ul>
+			</section>
+		</main>
 
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>

@@ -23,6 +23,18 @@ li {
   padding: 10px;
 }
 
+.card {
+  text-align: center;
+  padding: 0 5em;
+  margin: auto;
+}
+
+.card h1{
+  width: 50%;
+}
+
+
+
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
