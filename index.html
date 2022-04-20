@@ -4,6 +4,10 @@
     	<meta charset="utf-8">
     	<meta name="description" content="This is where your description goes">
     	<meta name="keywords" content="one, two, three">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Lato&display=swap" rel="stylesheet">
 
 		<title>Book Tracker</title>
 
@@ -15,28 +19,56 @@
 
 		<main class="card">
 			<!-- Accessibility h1 -->
-			<h1 class="a11y">BookTracker powered by OpenLibrary API</h1>
+			<h1 class="ally">BookTracker powered by OpenLibrary API</h1>
 			<!-- Section for logo -->
 				<section class="searchBox">
-					<h2 class="a11y">Search bar entry</h2>
+					<h2 class="ally">Search bar entry</h2>
 					<div class="logo" aria-hidden="true">
-						LOGO
+						<img src="/asset/logored.png" alt="">
 					</div>
 				
 			<!-- Form for search -->
 					<form id="searchInput" class="searchInput">
 
-						<label for="search" class="a11y">Enter a search term for a book
+						<label for="search" class="ally">Enter a search term for a book
 						</label>
 
 						<input id="search" type="text" autocomplete="off" />
+						
+						<div class="none button clear" id="clear" role="button" tabindex="0" aria-label="Clear book search">
+							<i class="fa-regular fa-x"></i>
+						</div>
 
-						<button id="searchButton" class="button searchButton" type="button" aria-label="Submit button">Get Pokemon
+						<button id="searchButton" class="button searchButton" type="button" aria-label="Submit button">
+							<i id="icon" class="fa-solid fa-magnifying-glass fa-2x"></i>
 						</button>
 						
 					</form>
 				</section>
-				
+			
+			<!-- Display results here -->
+			
+			<section class="displayResult">
+				<h2 class="ally">Book Search Results</h2>
+				<div class="statsec">
+					<div id="stats" class="stat" aria-live="assertive"></div>
+				</div>
+
+				<div class="searchResult">
+					<div class="resultItem">
+						<div class="bookTitle">
+
+						</div>
+						<div class="bookinfo">
+							<div class="bookText">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
 			<section id="search">
 				<ul class="findbooks">
 

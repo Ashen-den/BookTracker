@@ -2,29 +2,19 @@
 document.querySelector('button').addEventListener('click', getFetch)
 
 
-//Take results from API, clean up ISBN, and append to DOM
+//Take results from API, clean up undefined later, and append to DOM
 function addSearchItem(obj){
   let item = document.querySelector('.findbooks')
   
   
   for(let i = 0; i<obj.numFound;i++){
     let li = document.createElement('li')
-   
-
+    
     li.innerHTML = `Title: ${obj.docs[i].title} <br>Author: ${obj.docs[i].author_name} <br>Published Year: ${obj.docs[i].first_publish_year} <br> ISBN: ${obj.docs[i].isbn}`
     item.append(li)
   }
 }
 
-//Helper function to pick the ISBN-13
-// function getBookNumber(obj) {
-//   let bookNum = []
-//   for(let i = 0; i<obj.numFound;i++){
-//     bookNum = obj.docs[i].isbn
-    
-//     console.log(bookNum)
-//   }
-// }
 
 //Retrieve JSON from openlibrary API
 function getFetch(){
@@ -38,7 +28,6 @@ function getFetch(){
       .then(res => res.json()) // parse response as JSON
       .then(data => {
         console.log(data)
-        const bookapi = data
         addSearchItem(bookapi)
         
 

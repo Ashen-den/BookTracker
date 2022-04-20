@@ -5,11 +5,97 @@
 /* Box Model Hack */
 *{
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
+
+/* Font Styling */
+body{
+  font-family: 'Lato', sans-serif;
+  background-color: rgb(149, 162, 241);
+}
+
+/* Media Query */
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) {
+  .searchInput{
+    width: 90vw;
+  }
+}
+@media only screen 
+and (min-width : 767px) {
+.searchInput{
+  width: 80vw;
+}
+}
+
+@media only screen 
+and (min-device-width : 768px) {
+.searchInput{
+  width: 60vw;
+}
+
+
+}
+
 
 /******************************************
 /* LAYOUT
 /*******************************************/
+.ally{
+  position: absolute;
+  left: -10000px;
+}
+
+.none{
+  display: none;
+}
+
+.flex{
+  display: flex;
+}
+
+.searchBox{  
+  padding: 4rem;
+  margin: 0 auto;
+
+}
+
+html, body{
+  width: 100vw;
+  height: 100vh;
+  font-size: 10px;
+}
+
+input[type="text"]{
+  font-size: 2.2rem;
+  text-align: left;
+  letter-spacing: 0.1rem;
+  border: 0;
+  outline: none;
+  min-width: 15rem;
+  padding-left: 10px;
+  border-radius: 25px;
+}
+
+i{
+  line-height: 2.3rem;
+}
+
+.button{
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  margin-left: -2.75rem;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 img{
   display: block;
   margin: 0 auto;
