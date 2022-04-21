@@ -71,10 +71,9 @@ html, body{
 input[type="text"]{
   font-size: 2.2rem;
   text-align: left;
-  letter-spacing: 0.1rem;
   border: 0;
   outline: none;
-  min-width: 15rem;
+  min-width: 20rem;
   padding-left: 10px;
   border-radius: 25px;
 }
@@ -88,6 +87,16 @@ i{
   border: 0;
   background: transparent;
   margin-left: -2.75rem;
+}
+
+.displayResult{
+  display: flex;
+  flex-direction: column;
+}
+
+.stat{
+  font-size: 1.4rem;
+  padding: 0 1rem 1rem 1rem;
 }
 
 main{
