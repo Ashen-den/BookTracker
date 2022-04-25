@@ -7,9 +7,7 @@ export const getSearchResult = async function(){
   if(storeData.hasOwnProperty("docs")){
     dataArray = showResult(storeData)
   }
- 
-  console.log(dataArray)
-
+  return dataArray
 }
 
 //Retrieve user search text from search form
@@ -17,6 +15,15 @@ export const getSearchValue = function(){
   const searchValue = document.querySelector('input').value.trim();
   const searchBookValue = searchValue.split(' ').join('+');
   return searchBookValue
+}
+
+//Create Div and add to searchResult Div
+export const createResult = function (data){
+  const resultDiv = document.querySelector('.searchResult')
+  const addBookDiv = document.createElement('div')
+  addBookDiv.classList.add('resultItem')
+  addBookDiv.append(addBook());
+  resultDiv.append(addBookDiv)
 }
 
 //Create query URL to OpenLibrary API
@@ -57,3 +64,27 @@ const showResult = function(data) {
   )
   return dataArray
 }
+
+//Add book item and title div
+export const addBook = function(data){
+  let addTitleDiv = document.createElement('div')
+  addTitleDiv.classList.add('bookTitle')
+  let addTitleSpan = document.createElement('span')
+  let addTitleContent = addTitleSpan.textContent = "hello?"
+  addTitleDiv.append(addTitleContent)
+  return addTitleDiv
+}
+
+
+//Add book info
+// const inputDOM = function(){
+//   let currentInfoDiv = `bookInfo${i}`
+//   const addTextDiv = document.createElement('div').classList.add(currentInfoDiv)
+//   const addTextSpan = document.createElement('span')
+//   appendDiv.append(addTextDiv)
+//   return appendDiv
+
+
+  // document.querySelector(currentBookDiv).append(addTitleSpan)
+  // document.querySelector(currentInfoDiv).append(addTextSpan)
+

@@ -1,11 +1,20 @@
-import { getSearchResult } from "./searchresults.js"
+import { getSearchResult, createResult, addBook } from "./searchresults.js"
+
+const evaluateResults = async function(){
+  const searchResult = await getSearchResult()
+  
+    createResult()
+  
+  console.log(searchResult)
+} 
 
 //Event Listeners
 function loadEventListeners(){
-document.querySelector('button').addEventListener('click', getSearchResult)
+document.querySelector('button').addEventListener('click', evaluateResults)
 }
 
 loadEventListeners()
+
 
 
 
