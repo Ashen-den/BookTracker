@@ -1,17 +1,17 @@
-import { getSearchResult, createResult, addBook } from "./searchresults.js"
-
-const evaluateResults = async function(){
-  const searchResult = await getSearchResult()
-  
-    createResult()
-  
-  console.log(searchResult)
-} 
+import { getSearchResult, createResult} from "./searchresults.js"
 
 //Event Listeners
 function loadEventListeners(){
 document.querySelector('button').addEventListener('click', evaluateResults)
 }
+
+const evaluateResults = async function(){
+  const searchResult = await getSearchResult()
+  
+    createResult(searchResult)
+  
+  console.log(searchResult)
+} 
 
 loadEventListeners()
 

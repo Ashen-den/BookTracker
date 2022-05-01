@@ -17,15 +17,6 @@ export const getSearchValue = function(){
   return searchBookValue
 }
 
-//Create Div and add to searchResult Div
-export const createResult = function (data){
-  const resultDiv = document.querySelector('.searchResult')
-  const addBookDiv = document.createElement('div')
-  addBookDiv.classList.add('resultItem')
-  addBookDiv.append(addBook());
-  resultDiv.append(addBookDiv)
-}
-
 //Create query URL to OpenLibrary API
 const queryURL = function(searchValue) {
   const url = `http://openlibrary.org/search.json?q=${searchValue}`
@@ -65,16 +56,37 @@ const showResult = function(data) {
   return dataArray
 }
 
-//Add book item and title div
-export const addBook = function(data){
+//Create Div and add to searchResult Div
+export const createResult = function (data){
+  for(let i=0; i<data.length; i++){
+  const resultDiv = document.querySelector('.searchResult')
+  const addBookDiv = document.createElement('div')
+  addBookDiv.classList.add('resultItem')
+  addBookDiv.append(addBookTitle(data[i]));
+  addBookDiv.append(addBookInfo(data[i]));
+  resultDiv.append(addBookDiv)
+  }
+}
+
+//Create book item and add book title and add book info
+const addBookTitle = function(data){
   let addTitleDiv = document.createElement('div')
   addTitleDiv.classList.add('bookTitle')
   let addTitleSpan = document.createElement('span')
-  let addTitleContent = addTitleSpan.textContent = "hello?"
+  let addTitleContent = addTitleSpan.textContent = `${data.title}`
   addTitleDiv.append(addTitleContent)
   return addTitleDiv
 }
 
+// Create bookInfo 
+const addBookInfo = function(data){
+  let addInfoDiv = document.createElement('div')
+  addInfoDiv.classList.add('BookInfo')
+  let addParagraph = document.createElement('p')
+  let addToDiv = addParagraph.textContent = `${data.year}`
+  addInfoDiv.append(addToDiv)
+  return addInfoDiv
+}
 
 //Add book info
 // const inputDOM = function(){
