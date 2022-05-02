@@ -34,7 +34,7 @@ const getData = async (url) => {
   }
 }
 
-// Input data into DOM
+// Store data as an array with default values for undefined keys
 const showResult = function(data) {
   let dataArray = []
   data.docs.forEach((e)=> {
@@ -46,9 +46,9 @@ const showResult = function(data) {
     const store = {
       key : key,
       title : title,
-      author : author,
-      year : year,
-      isbn : isbn,
+      author : author ?? 'unknown',
+      year : year ?? 'unknown',
+      isbn : isbn ?? 'unknown',
     }
     dataArray.push(store)
   }
@@ -73,30 +73,29 @@ const addBookTitle = function(data){
   let addTitleDiv = document.createElement('div')
   addTitleDiv.classList.add('bookTitle')
   let addTitleSpan = document.createElement('span')
-  let addTitleContent = addTitleSpan.textContent = `${data.title}`
-  addTitleDiv.append(addTitleContent)
+  addTitleSpan.textContent = `${data.title}`
+  addTitleDiv.append(addTitleSpan)
   return addTitleDiv
 }
 
 // Create bookInfo 
 const addBookInfo = function(data){
+  // let cleanData = limitCharacters(data)
+  // // console.log(cleanData)
   let addInfoDiv = document.createElement('div')
   addInfoDiv.classList.add('BookInfo')
-  let addParagraph = document.createElement('p')
-  let addToDiv = addParagraph.textContent = `${data.year}`
-  addInfoDiv.append(addToDiv)
+  let addParagraph = document.createElement('p') 
+  addParagraph.innerHTML = `Author: ${data.author}<br>Year: ${data.year}<br>ISBN: ${data.isbn}<br>Key: ${data.key}`
+  addInfoDiv.append(addParagraph)
   return addInfoDiv
 }
 
-//Add book info
-// const inputDOM = function(){
-//   let currentInfoDiv = `bookInfo${i}`
-//   const addTextDiv = document.createElement('div').classList.add(currentInfoDiv)
-//   const addTextSpan = document.createElement('span')
-//   appendDiv.append(addTextDiv)
-//   return appendDiv
-
-
-  // document.querySelector(currentBookDiv).append(addTitleSpan)
-  // document.querySelector(currentInfoDiv).append(addTextSpan)
+//reduce the size of a string down to fit HTML better
+// const limitCharacters = function(data){
+//   console.log(data)
+//   let splitData = {}
+//   data.author.length > 3 ?  = data.author.slice(0,40) + '...' : data.author; 
+//   typeof data.isbn === 'string' ? data.isbn.split('').slice(0,3) : data.isbn
+//   // splitData.length > 3 ? data.isbn.slice(0,3) + '...' : data.isbn;
+// }
 

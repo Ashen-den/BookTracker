@@ -10,7 +10,7 @@ const evaluateResults = async function(){
   
     createResult(searchResult)
   
-  console.log(searchResult)
+
 } 
 
 loadEventListeners()

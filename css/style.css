@@ -57,7 +57,7 @@ and (min-device-width : 768px) {
 }
 
 .searchBox{  
-  padding: 4rem;
+  padding: 2rem;
   margin: 0 auto;
 
 }
@@ -114,10 +114,6 @@ img{
   list-style: none;
 }
 
-li {
-  padding: 10px;
-}
-
 .card {
   text-align: center;
   padding: 0 5em;
@@ -128,6 +124,15 @@ li {
   width: 50%;
 }
 
+/* Search Result Styling */
+
+.bookTitle span{
+  font-size: 2.4rem;
+}
+
+.resultItem {
+  padding: 1rem 0;
+}
 
 
 /******************************************
