@@ -1,15 +1,17 @@
-import { getSearchResult, createResult} from "./searchresults.js"
+import { getSearchResult, createResult, deleteOldResults} from "./searchresults.js"
 
 //Event Listeners
 function loadEventListeners(){
 document.querySelector('button').addEventListener('click', evaluateResults)
+document.querySelector('#search').focus();
 }
 
 const evaluateResults = async function(){
   const searchResult = await getSearchResult()
-  
+    deleteOldResults()
     createResult(searchResult)
   
+
 
 } 
 

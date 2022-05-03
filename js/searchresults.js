@@ -10,8 +10,18 @@ export const getSearchResult = async function(){
   return dataArray
 }
 
+//Delete old search results
+export const deleteOldResults = function(){
+  const parent = document.querySelector('.searchResult')
+  let childElement = parent.lastElementChild; 
+  while(childElement){
+    parent.removeChild(childElement);
+    childElement = parent.lastElementChild;
+  }
+}
+
 //Retrieve user search text from search form
-export const getSearchValue = function(){
+const getSearchValue = function(){
   const searchValue = document.querySelector('input').value.trim();
   const searchBookValue = searchValue.split(' ').join('+');
   return searchBookValue
@@ -90,7 +100,7 @@ const addBookInfo = function(data){
   return addInfoDiv
 }
 
-//reduce the size of a string down to fit HTML better
+// reduce the size of a string down to fit HTML better
 // const limitCharacters = function(data){
 //   console.log(data)
 //   let splitData = {}
