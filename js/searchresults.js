@@ -10,6 +10,18 @@ export const getSearchResult = async function(){
   return dataArray
 }
 
+//Add stats
+export function addSearchStats(searchResult){
+  const stat = document.querySelector('#stats')
+  const statNum = searchResult.length
+  const statHolder = document.createElement('span')
+    if(stat.innerHTML != '') { 
+     stat = ''
+    }
+  statHolder.innerHTML = `Displaying ${statNum} Book Results`
+  stat.append(statHolder)
+}
+
 //Delete old search results
 export const deleteOldResults = function(){
   const parent = document.querySelector('.searchResult')

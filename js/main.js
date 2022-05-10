@@ -1,4 +1,4 @@
-import { getSearchResult, createResult, deleteOldResults} from "./searchresults.js"
+import { getSearchResult, createResult, deleteOldResults, addSearchStats} from "./searchresults.js"
 
 //Event Listeners
 function loadEventListeners(){
@@ -11,6 +11,7 @@ const evaluateResults = async function(e){
   e.preventDefault()
   deleteOldResults()
   const searchResult = await getSearchResult()
+  addSearchStats(searchResult)
   createResult(searchResult)
   
 
