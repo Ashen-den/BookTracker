@@ -13,9 +13,6 @@ const evaluateResults = async function(e){
   const searchResult = await getSearchResult()
   addSearchStats(searchResult)
   createResult(searchResult)
-  
-
-
 } 
 
 loadEventListeners()

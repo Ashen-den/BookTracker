@@ -5,21 +5,28 @@ export const getSearchResult = async function(){
   const storeData = await getData(userRequestString);
   let dataArray = []
   if(storeData.hasOwnProperty("docs")){
+    
     dataArray = showResult(storeData)
   }
+  // console.log(dataArray)
   return dataArray
 }
 
+
+
 //Add stats
-export function addSearchStats(searchResult){
-  const stat = document.querySelector('#stats')
+export const addSearchStats = function(searchResult){
+  let stat = document.querySelector('#stats')
   const statNum = searchResult.length
   const statHolder = document.createElement('span')
-    if(stat.innerHTML != '') { 
-     stat = ''
+    if(stat.innerHTML != ``) { 
+     stat.removeChild(stat.lastElementChild)
+     statHolder.innerHTML = `Displaying ${statNum} Book Results`
+     stat.append(statHolder)
+    } else {
+    statHolder.innerHTML = `Displaying ${statNum} Book Results`
+    stat.append(statHolder)
     }
-  statHolder.innerHTML = `Displaying ${statNum} Book Results`
-  stat.append(statHolder)
 }
 
 //Delete old search results
@@ -68,9 +75,9 @@ const showResult = function(data) {
     const store = {
       key : key,
       title : title,
-      author : author ?? 'unknown',
-      year : year ?? 'unknown',
-      isbn : isbn ?? 'unknown',
+      author : author ?? ['unknown'],
+      year : year ?? ['unknown'],
+      isbn : isbn ?? ['unknown'],
     }
     dataArray.push(store)
   }
@@ -102,22 +109,29 @@ const addBookTitle = function(data){
 
 // Create bookInfo 
 const addBookInfo = function(data){
-  // let cleanData = limitCharacters(data)
-  // // console.log(cleanData)
+  convertAuthor(data.author)
   let addInfoDiv = document.createElement('div')
   addInfoDiv.classList.add('BookInfo')
   let addParagraph = document.createElement('p') 
-  addParagraph.innerHTML = `Author: ${data.author}<br>Year: ${data.year}<br>ISBN: ${data.isbn}<br>Key: ${data.key}`
+  addParagraph.innerHTML = `Author: ${convertAuthor(data.author)}<br>Year: ${data.year}<br>ISBN: ${convertISBN(data.isbn)}<br>Key: ${data.key}`
   addInfoDiv.append(addParagraph)
   return addInfoDiv
 }
 
-// reduce the size of a string down to fit HTML better
-// const limitCharacters = function(data){
-//   console.log(data)
-//   let splitData = {}
-//   data.author.length > 3 ?  = data.author.slice(0,40) + '...' : data.author; 
-//   typeof data.isbn === 'string' ? data.isbn.split('').slice(0,3) : data.isbn
-//   // splitData.length > 3 ? data.isbn.slice(0,3) + '...' : data.isbn;
-// }
+// Restrict character length for lengthy authors
+const convertAuthor = function(authorData){
+  if(authorData.join(', ').length > 48){
+    return `${authorData.join(', ').slice(0,48)}...`
+  } else {
+    return authorData.join(', ')
+  } 
+}
 
+// Restrict character length for lengthy isbn
+const convertISBN = function(isbnData){
+  if(isbnData.join(', ').length > 48){
+    return `${isbnData.join(', ').slice(0,48)}...`
+  } else {
+    return isbnData.join(', ')
+  } 
+}
