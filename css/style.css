@@ -12,7 +12,8 @@
 /* Font Styling */
 body{
   font-family: 'Lato', sans-serif;
-  background-color: rgb(149, 162, 241);
+  background-color: rgb(15, 21, 33);
+  color: rgb(235, 236, 237);
 }
 
 /* Media Query */
